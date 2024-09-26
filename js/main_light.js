@@ -64,51 +64,70 @@
     Chart.defaults.borderColor = "#000000";
 
 
-    // Worldwide Sales Chart
-    var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
+    // current Chart
+    var ctx1 = $("#current").get(0).getContext("2d");
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
             datasets: [{
-                    label: "USA",
-                    data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(16,173,139, .7)"
+                    label: "廠商數",
+                    data: [528, 549, 572, 591, 600, 626, 630],
+                    backgroundColor: "rgba(16,173,139, .7)",
+                    yAxisID: 'y'
                 },
                 {
-                    label: "UK",
-                    data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "rgba(16,173,139, .5)"
-                },
-                {
-                    label: "AU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(16,173,139, .3)"
+                    label: "員工數",
+                    data: [13760, 14141, 14780, 15531, 16568, 17044, 19653],
+                    backgroundColor: "rgba(16,173,139, .3)",
+                    yAxisID: 'y1'
                 }
             ]
-            },
+        },
         options: {
-            responsive: true
+            responsive: true,
+            scales: {
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: '廠商數'
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: '員工數'
+                    },
+                    grid: {
+                        drawOnChartArea: false  // 這樣可以避免右側軸的格線和左側軸的重疊
+                    }
+                }
+            }
         }
     });
+    
 
 
     // Salse & Revenue Chart
-    var ctx2 = $("#salse-revenue").get(0).getContext("2d");
+    var ctx2 = $("#VOCs").get(0).getContext("2d");
     var myChart2 = new Chart(ctx2, {
         type: "line",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
             datasets: [{
-                    label: "Salse",
+                    label: "VOCs 排放量",
                     data: [15, 30, 55, 45, 70, 65, 85],
                     backgroundColor: "rgba(16,173,139, .7)",
                     fill: true
                 },
                 {
-                    label: "Revenue",
+                    label: "VOCs 許可量",
                     data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(16,173,139, .5)",
+                    backgroundColor: "rgba(16,173,139, .3)",
                     fill: true
                 }
             ]
