@@ -117,17 +117,17 @@
     var myChart2 = new Chart(ctx2, {
         type: "line",
         data: {
-            labels: ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
+            labels: [ "2019", "2020", "2021", "2022"],
             datasets: [{
                     label: "VOCs 排放量",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(16,173,139, .7)",
+                    data: [336.22, 363.43, 334.90, 344.92],
+                    backgroundColor: "rgba(16,173,139, .3)",
                     fill: true
                 },
                 {
                     label: "VOCs 許可量",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(16,173,139, .3)",
+                    data: [124.71, 80.21, 256.64, 139.59, 371.52],
+                    backgroundColor: "rgba(16,173,139, .7)",
                     fill: true
                 }
             ]
